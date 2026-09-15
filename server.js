@@ -40,26 +40,26 @@ app.get('/', async (req, res) => {
 
 app.get('/organizations', async (req, res) => {
     const organizations = await getAllOrganizations();
-    // console.log(organizations);
+    //console.log(organizations);
       
     const title = 'Our Partner Organizations';
-    res.render('organizations', { title });
+    res.render('organizations', { title, organizations});
 });
 
 app.get('/projects', async (req, res) => {
     const projects = await getAllProjects();
-    // console.log(projects);
+    //console.log(projects);
       
     const title = 'Service Projects';
-    res.render('projects', { title });
+    res.render('projects', { title, projects });
 });
 
 app.get('/categories', async (req, res) => {
     const categories = await getAllCategories();
-    // console.log(categories);
+     //console.log(categories);
       
     const title = 'Categories';
-    res.render('categories', { title });
+    res.render('categories', { title, categories });
 });
 
 app.listen(PORT, async () => {
