@@ -1,4 +1,5 @@
 import { getUpcomingProjects, getProjectDetails } from '../models/projects.js';
+import { getCategoriesForProject } from '../models/categories.js';
 
 // The number of service projects to show on the main projects page
 const NUMBER_OF_PROJECTS_TO_SHOW = 5;
@@ -29,7 +30,8 @@ export const showProjectDetailsPage = async (req, res, next) => {
   }
 
   const title = project.title;
-  res.render('project', { title, project });
+  const categories = await getCategoriesForProject(id);
+  res.render('project', { title, project, categories });
 };
 
 export default { showProjectsPage, showProjectDetailsPage };
