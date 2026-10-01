@@ -13,7 +13,10 @@
         <p>There are no service projects in this category yet.</p>
     <% } %>
 
-    <p><a href="/edit-category/<%= category.category_id %>">Edit Category</a></p>
+    
+<% if (user && user.role_name === 'admin') { %>
+    <a href="/edit-category/<%= category.category_id %>">Edit Category</a>
+<% } %>
     <p><a href="/categories">&larr; Back to all categories</a></p>
 </main>
 

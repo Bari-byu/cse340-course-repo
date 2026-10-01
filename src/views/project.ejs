@@ -16,5 +16,9 @@
  &nbsp;(<a href="/assign-categories/<%= project.project_id %>">Reassign Categories</a>)
     </p>
 </main>
-<p><a href="/edit-project/<%= project.project_id %>">Edit Project</a></p>
+
 <%- include('partials/footer') %>
+
+<% if (user && user.role_name === 'admin') { %>
+    <a href="/edit-project/<%= project.project_id %>">Edit Project</a>
+<% } %>
